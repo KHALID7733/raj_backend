@@ -15,4 +15,4 @@ const ClientModel = new mongoose.Schema({
   }
 }, { timestamps: true });
 
-module.exports = mongoose.model('ClientQuery', ClientModel);
+export default mongoose.model('ClientQuery', ClientModel);
