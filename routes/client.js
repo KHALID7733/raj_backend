@@ -1,5 +1,5 @@
 import express from 'express';
-import Clients from '../models/ClientModel.js';
+const Clients = require('../models/ClientModel');
 
 const router = express.Router();
 
