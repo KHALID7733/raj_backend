@@ -5,6 +5,7 @@ const router = express.Router();
 
 // POST form data
 router.post('/', async (req, res) => {
+   console.log('Request body:', req.body);
   const { name, email, phone } = req.body;
 
   try {
