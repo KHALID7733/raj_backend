@@ -1,13 +1,14 @@
-const express = require('express');
+import express from 'express';
+import Clients from '../models/ClientModel.js';
+
 const router = express.Router();
-const Clients = require('../models/ClientModel');
 
 // POST form data
 router.post('/', async (req, res) => {
-  const { name, email, phone} = req.body;
+  const { name, email, phone } = req.body;
 
   try {
-    const newClient = new Clients({ name, email, phone});
+    const newClient = new Clients({ name, email, phone });
     await newClient.save();
     res.status(201).json({ message: 'Enquiry submit successfully' });
   } catch (err) {
@@ -15,4 +16,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
