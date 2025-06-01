@@ -1,16 +1,18 @@
-import express, { json } from "express";
-import { config } from "dotenv";
-import cors from "cors";
+import express from 'express';
+import { config } from 'dotenv';
+import cors from 'cors';
 
 // Import routes
-import connectDB from "./connectdb.js";
+import connectDB from './connectdb.js';
 import clientRoutes from './routes/client.js';
 
 config();
 const app = express();
-// app.use(express.json({ limit: '50mb' }));
 
-app.use(express.urlencoded({ limit: '50mb', extended: true }));
+// Middleware for JSON and URL-encoded body parsing
+app.use(express.json({ limit: '50mb' }));  // Handle JSON bodies
+app.use(express.urlencoded({ limit: '50mb', extended: true }));  // Handle URL-encoded data (optional)
+
 app.use(
   cors({
     origin: "*",
